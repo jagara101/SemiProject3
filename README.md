@@ -24,7 +24,7 @@
 ## Team_mate
 - https://github.com/jaekim3220
 - https://github.com/hajinseok11
-- 
+  
 ### 진행 방법
 
 내용 기재할 것
