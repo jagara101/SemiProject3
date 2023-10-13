@@ -21,6 +21,10 @@
 
 참고 자료 수집, 데이터 분석용 Code Frame 구축, PPT Deco 총괄
 
+## Team_mate
+- https://github.com/jaekim3220
+- https://github.com/hajinseok11
+- 
 ### 진행 방법
 
 내용 기재할 것
