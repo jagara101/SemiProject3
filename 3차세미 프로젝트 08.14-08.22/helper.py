@@ -18,7 +18,7 @@ from scipy.stats import t, pearsonr, spearmanr
 from statsmodels.formula.api import ols, logit
 from statsmodels.stats.outliers_influence import variance_inflation_factor
 
-from sklearn.preprocessing import StandardScaler
+from sklearn.preprocessing import StandardScaler,RobustScaler
 
 
 
@@ -496,6 +496,39 @@ def scalling(df, yname=None):
     if yname:
         y_train = df.filter([yname])
         y_train_std = StandardScaler().fit_transform(y_train)
+        y_train_std_df = DataFrame(y_train_std, columns=y_train.columns)
+
+    if yname:
+        result = (x_train_std_df, y_train_std_df)
+    else:
+        result = x_train_std_df
+
+    return result
+
+
+def scalling1(df, yname=None):
+    """
+    데이터 프레임을 표준화 한다.(로버스트)
+
+    Parameters
+    -------
+    - df: 데이터 프레임
+    - yname: 종속변수 이름
+
+    Returns
+    -------
+    - x_train_std_df: 표준화된 독립변수 데이터 프레임
+    - y_train_std_df: 표준화된 종속변수 데이터 프레임
+    """
+    # 평소에는 yname을 제거한 항목을 사용
+    # yname이 있지 않다면 df를 복사
+    x_train = df.drop([yname], axis=1) if yname else df.copy()
+    x_train_std = RobustScaler().fit_transform(x_train)
+    x_train_std_df = DataFrame(x_train_std, columns=x_train.columns)
+    
+    if yname:
+        y_train = df.filter([yname])
+        y_train_std = RobustScaler().fit_transform(y_train)
         y_train_std_df = DataFrame(y_train_std, columns=y_train.columns)
 
     if yname:
