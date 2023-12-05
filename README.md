@@ -1,4 +1,4 @@
-# SemiProject3 (수정예정)
+# SemiProject3
 
 ## “불로소득과 부채가 총생활비에 미치는 영향” 분석 
 
